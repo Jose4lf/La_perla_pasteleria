@@ -92,7 +92,7 @@ body{
     }
     #menu{
       display: block;
-      color: black;
+      color: rgb(0, 0, 0);
       background-color: var(--bgcolor-1);
       font-size: 1.2rem;
       font-size: 1.2em;
