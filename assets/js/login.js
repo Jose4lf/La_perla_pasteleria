@@ -1,19 +1,19 @@
-const $submit = document.getElementById("submit"),
-      $password = document.getElementById("password"),
-      $username = document.getElementById("username"),
-      $visible = document.getElementById("visible");
+const $loginForm = document.getElementById("loginForm"),
+              $password = document.getElementById("password"),
+              $username = document.getElementById("username"),
+              $visible = document.getElementById("visible");
 
-document.addEventListener("change",(e)=>{
-    if (e.target === $visible) {
-        if ($visible.checked === false)$password.type = "password";
-        else $password.type = "text";
-    }
-});
-document.addEventListener("click",(e)=>{
-    if (e.target === $submit) {
-        if ($password.value !== "" && $username.value !== "") {
+        $loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            window.location.href = "pagina_principal.html"
-        }
-    }
-});
+
+            // Verifica el nombre de usuario y la contraseña
+            if ($username.value === "usuarioEjemplo" && $password.value === "contraseñaEjemplo") {
+                window.location.href = "pagina_principal.html";
+            } else {
+                alert("Nombre de usuario o contraseña incorrectos");
+            }
+        });
+
+        $visible.addEventListener("change", () => {
+            $password.type = $visible.checked ? "text" : "password";
+        });
